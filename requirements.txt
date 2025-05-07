@@ -4,3 +4,4 @@ pandas
 fpdf
 requests
 openpyxl
+openai>=1.0.0
