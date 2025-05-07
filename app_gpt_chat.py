@@ -4,6 +4,14 @@ from prompts import generate_overview_prompt
 from utils import create_pdf, similarity
 import pandas as pd
 import openai
+from openai import OpenAI
+
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+
+response = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[{"role": "user", "content": prompt}]
+)
 
 # --- Custom Styles ---
 set_custom_page_style()
