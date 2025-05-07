@@ -1,36 +1,36 @@
+# styles.py
+
 import streamlit as st
 
-def set_custom_styles():
-    st.markdown("""
+def set_custom_page_style():
+    st.markdown(
+        """
         <style>
-        /* 전체 블록 가운데 정렬 */
-        .main .block-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding-top: 2rem;
-        }
-
-        /* 제목 간격 조절 */
-        h1, h2, h3 {
-            margin-bottom: 1rem;
-        }
-
-        /* 버튼 여백 */
-        .stButton > button {
-            margin-top: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        /* 마크다운 텍스트 여백 */
-        .stMarkdown {
-            margin-bottom: 1.5rem;
-        }
-
-        /* 다운로드 버튼 정렬 */
-        .stDownloadButton {
-            text-align: center;
-            margin: 1.5rem 0;
-        }
+            .reportview-container {
+                padding: 2rem 5rem;
+                background-color: #f8f9fa;
+                font-family: 'Nanum Gothic', sans-serif;
+            }
+            h1, h2, h3 {
+                color: #222831;
+            }
+            .stButton>button {
+                background-color: #4CAF50;
+                color: white;
+                font-weight: bold;
+                border-radius: 8px;
+                padding: 0.5em 1em;
+                margin-top: 10px;
+            }
+            .stMarkdown {
+                max-width: 800px;
+                margin: auto;
+                padding: 2rem;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            }
         </style>
-    """, unsafe_allow_html=True)
-
+        """,
+        unsafe_allow_html=True
+    )
