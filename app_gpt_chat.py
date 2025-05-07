@@ -5,6 +5,8 @@ from utils import create_pdf, similarity
 import pandas as pd
 from openai import OpenAI
 
+ 
+
 # --- GPT 클라이언트 설정 ---
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
