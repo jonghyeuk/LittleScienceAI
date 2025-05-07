@@ -27,8 +27,10 @@ df = load_db()
 
 # --- 유사도 분석 함수 ---
 def find_similar_topics(input_keyword, db, top_n=3):
-    def similarity(a, b):
-        return SequenceMatcher(None, a.lower(), b.lower()).ratio()
+def similarity(a, b):
+    if not isinstance(a, str) or not isinstance(b, str):
+        return 0.0
+    return SequenceMatcher(None, a.lower(), b.lower()).ratio()
     db["similarity"] = db["Project Title"].apply(lambda x: similarity(input_keyword, x))
     return db.sort_values(by="similarity", ascending=False).head(top_n)
 
