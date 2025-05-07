@@ -7,7 +7,14 @@ import openai
 from openai import OpenAI
 
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+prompt = f"""
+사용자가 제시한 관심 주제: {st.session_state.keyword}
+1. 이 주제의 주요 과학적 의미와 배경을 설명해주세요.
+2. 관련된 사회/환경적 이슈가 있다면 알려주세요.
+3. 고등학생 수준의 탐구 주제로 적절한 예시 3가지를 제시해주세요.
+"""
 
+messages = [{"role": "user", "content": prompt}]
 response = client.chat.completions.create(
     model="gpt-3.5-turbo",
     messages=[{"role": "user", "content": prompt}]
