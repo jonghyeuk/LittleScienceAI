@@ -19,4 +19,6 @@ def create_pdf(text):
 
 # 유사도 계산 함수
 def similarity(a, b):
+    if not isinstance(a, str) or not isinstance(b, str):
+        return 0.0
     return SequenceMatcher(None, a.lower(), b.lower()).ratio()
