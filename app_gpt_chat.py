@@ -19,6 +19,10 @@ else:
     st.warning("📝 먼저 탐색할 주제를 입력해주세요.")
     st.stop()  # 이후 코드 실행 방지
 
+prompt = f"""
+사용자가 제시한 관심 주제: {st.session_state.get("keyword", "주제가 아직 입력되지 않았습니다.")}
+"""
+
 messages = [{"role": "user", "content": prompt}]
 response = client.chat.completions.create(
     model="gpt-3.5-turbo",
