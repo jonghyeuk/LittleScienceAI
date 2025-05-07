@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+
 import streamlit as st
 from styles import set_custom_page_style
 from prompts import generate_overview_prompt
