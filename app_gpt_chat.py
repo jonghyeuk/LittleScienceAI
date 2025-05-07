@@ -1,9 +1,16 @@
 import streamlit as st
 import pandas as pd
 from openai import OpenAI
-from prompts import generate_overview_prompt
-from styles import set_custom_page_style
 from utils import create_pdf, similarity
+
+# 스타일 적용
+from styles import set_custom_page_style
+set_custom_page_style()
+
+# 프롬프트 사용
+from prompts import generate_overview_prompt
+prompt = generate_overview_prompt(st.session_state.keyword)
+
 
 # --- 페이지 설정 및 스타일 ---
 st.set_page_config(page_title="AI 기반 소논문 설계 가이드", layout="centered")
