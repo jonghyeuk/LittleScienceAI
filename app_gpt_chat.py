@@ -1,6 +1,7 @@
 # app_gpt_chat.py (prompts.py 분리 반영)
 import streamlit as st
 import pandas as pd
+from styles import set_custom_styles
 from difflib import SequenceMatcher
 from openai import OpenAI
 from utils import create_pdf
@@ -8,8 +9,8 @@ from prompts import topic_analysis_prompt, niche_topic_prompt
 from styles import set_page_style
 
 # --- 페이지 설정 ---
-st.set_page_config(page_title="Little Science AI", layout="wide")
-set_page_style()
+st.set_page_config(page_title="AI 기반 소논문 설계 가이드", layout="wide")
+set_custom_styles()  # 화면 정렬 및 스타일 적용
 
 # --- 세션 초기화 ---
 if "step" not in st.session_state:
