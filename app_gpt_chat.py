@@ -25,12 +25,17 @@ df = load_db()
 
 # ✅ GPT 분석 함수
 def get_overview_from_gpt(keyword: str) -> str:
-    prompt = generate_overview_prompt(keyword)
+    prompt = generate_overview_prompt(keyword)  # 또는 generate_littlescienceai_prompt()로 바꿔도 됩니다
+
     response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[{"role": "user", "content": prompt}]
+        model="gpt-4",  # 더 좋은 모델
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.7,
+        max_tokens=2048,
+        top_p=0.9
     )
     return response.choices[0].message.content
+
 
 # ✅ 타이틀
 st.markdown("""
