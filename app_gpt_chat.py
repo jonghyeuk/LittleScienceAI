@@ -3,7 +3,8 @@ import pandas as pd
 from difflib import SequenceMatcher
 from openai import OpenAI
 from utils import create_pdf
-
+from styles import set_page_style
+set_page_style()
 # --- 페이지 설정 ---
 st.set_page_config(page_title="Little Science AI", layout="wide")
 
