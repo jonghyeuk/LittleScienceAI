@@ -87,3 +87,8 @@ elif st.session_state.step == 4:
         st.session_state.clear()
         st.rerun()
 
+@st.cache_data
+def load_db():
+    df = pd.read_excel("ISEF Final DB.xlsx")
+    df = df.dropna(subset=["Project Title"])  # 빈 제목 행 제거
+    return df
