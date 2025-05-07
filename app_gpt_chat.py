@@ -13,6 +13,11 @@ prompt = f"""
 2. 관련된 사회/환경적 이슈가 있다면 알려주세요.
 3. 고등학생 수준의 탐구 주제로 적절한 예시 3가지를 제시해주세요.
 """
+if "keyword" in st.session_state:
+    keyword = st.session_state.keyword
+else:
+    st.warning("📝 먼저 탐색할 주제를 입력해주세요.")
+    st.stop()  # 이후 코드 실행 방지
 
 messages = [{"role": "user", "content": prompt}]
 response = client.chat.completions.create(
