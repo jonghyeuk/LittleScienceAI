@@ -28,10 +28,13 @@ df = load_db()
 # --- GPT 응답 함수 ---
 def get_overview_from_gpt(keyword):
     prompt = generate_overview_prompt(keyword)
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=[{"role": "user", "content": prompt}]
-    )
+    from openai import OpenAI
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+
+response = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[{"role": "user", "content": prompt}]
+)
     return response["choices"][0]["message"]["content"]
 
 # --- Streamlit 앱 ---
